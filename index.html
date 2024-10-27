@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>نظام ضبابي تعليمي - الرصيف الرقمي</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- إضافة مكتبة MathJax لعرض المعادلات الرياضية -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>نظام ضبابي تعليمي</h1>
+        <p>منشئ الموقع: سجاد مؤيد - شركة الرصيف الرقمي</p>
+        <a href="http://sitee-iq.com" target="_blank">موقع الرصيف الرقمي</a>
+    </header>
+
+    <main>
+        <section>
+            <h2>أدخل القيم لتجربة النظام الضبابي</h2>
+            <label for="membershipType">نوع دوال الانتماء:</label>
+            <select id="membershipType">
+                <option value="triangular">مثلثية</option>
+                <option value="gaussian">غاوسية</option>
+            </select>
+
+            <label for="temperature">درجة الحرارة:</label>
+            <input type="number" id="temperature" min="0" max="40" value="25">
+            
+            <label for="humidity">الرطوبة:</label>
+            <input type="number" id="humidity" min="0" max="100" value="50">
+            
+            <button onclick="runFuzzySystem()">تشغيل النظام</button>
+        </section>
+        
+        <section>
+            <h3>النتائج:</h3>
+            <canvas id="membershipChart" width="400" height="200"></canvas>
+            <p id="result">النتيجة: ...</p>
+        </section>
+
+        <section class="laws">
+            <h3>القوانين الرياضية</h3>
+            <p>تمثل دوال الانتماء المستخدمة في النظام:</p>
+        
+            <h4>دالة الانتماء المثلثية</h4>
+            <p class="equation">$$ \mu(x) = \max\left(0, \min\left(\frac{x - a}{b - a}, \frac{c - x}{c - b}\right)\right) $$</p>
+            <p>حيث:</p>
+            <ul>
+                <li>\( x \): القيمة المدخلة.</li>
+                <li>\( a \)، \( b \)، \( c \): نقاط تحديد المثلث.</li>
+            </ul>
+        
+            <h4>دالة الانتماء الغاوسية</h4>
+            <p class="equation">$$ \mu(x) = e^{-\frac{(x - c)^2}{2 \sigma^2}} $$</p>
+            <p>حيث:</p>
+            <ul>
+                <li>\( x \): القيمة المدخلة.</li>
+                <li>\( c \): متوسط التوزيع.</li>
+                <li>\( \sigma \): الانحراف المعياري.</li>
+            </ul>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>إهداء إلى الدكتور محمد فلاح</p>
+        <p>جميع الحقوق محفوظة &copy; 2024 - سجاد مؤيد - شركة الرصيف الرقمي</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
